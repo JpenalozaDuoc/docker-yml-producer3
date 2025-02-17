@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  producer-kafka-bd:
+    image: jespenaloza1984/producer-kafka-bd
+    container_name: producer-kafka-bd
+    ports:
+      - "8087:8087"
+    environment:
+      - SPRING_KAFKA_BOOTSTRAP-SERVERS=<kafka_broker>
+    networks:
+      - producer-network
+
+networks:
+  producer-network:
+    driver: bridge
